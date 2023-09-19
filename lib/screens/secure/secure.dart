@@ -34,8 +34,19 @@ class SecureScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: const Center(
-        child: SecureAnimation(),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const SecureAnimation(),
+          SizedBox(
+            width: size.width * 0.78,
+            child: Text(
+              "Trust us with your child's safety. Our nannies are carefully vetted and trained to provide the best care possible",
+              style: NannyTheme.lightTextTheme.headline6
+                  ?.copyWith(wordSpacing: 2.0),
+            ),
+          )
+        ],
       ),
     );
   }
