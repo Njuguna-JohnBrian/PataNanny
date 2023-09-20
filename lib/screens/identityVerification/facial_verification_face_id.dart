@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../animations/animation_screens/face_id.dart';
 import '../../animations/animation_screens/secure.dart';
+import '../../nav.dart';
 import '../../utils/theme/theme.dart';
 
 class FaceIdScreen extends StatelessWidget {
@@ -76,7 +77,13 @@ class FaceIdScreen extends StatelessWidget {
                   10,
                 ),
                 child: TextButton(
-                  onPressed: () => {},
+                  onPressed: () => {
+                    Navigator.of(context).pushAndRemoveUntil(
+                        MaterialPageRoute(
+                          builder: (context) => NavScreen(),
+                        ),
+                        (Route<dynamic> route) => false)
+                  },
                   child: Text(
                     "CONTINUE",
                     style: NannyTheme.darkTextTheme.displaySmall
