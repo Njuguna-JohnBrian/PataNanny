@@ -65,7 +65,7 @@ class NannyTheme {
     return ThemeData(
       brightness: Brightness.light,
       fontFamily: "OpenSans",
-      scaffoldBackgroundColor: Colors.white,
+      scaffoldBackgroundColor: mainColor,
       checkboxTheme: CheckboxThemeData(
         fillColor: MaterialStateColor.resolveWith(
           (states) {
@@ -98,7 +98,7 @@ class NannyTheme {
   static ThemeData dark() {
     return ThemeData(
       brightness: Brightness.dark,
-      scaffoldBackgroundColor: Colors.black,
+      scaffoldBackgroundColor: mainColor,
       fontFamily: "OpenSans",
       appBarTheme: AppBarTheme(
         foregroundColor: Colors.white,
