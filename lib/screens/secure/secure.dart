@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:patananny/animations/animation_screens/secure.dart';
+import 'package:patananny/screens/screens.barrel.dart';
 import 'package:patananny/utils/theme/theme.dart';
 
 class SecureScreen extends StatelessWidget {
@@ -9,7 +10,6 @@ class SecureScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: NannyTheme.mainColor,
       extendBody: true,
       extendBodyBehindAppBar: true,
       appBar: AppBar(
@@ -23,7 +23,12 @@ class SecureScreen extends StatelessWidget {
             ),
             child: Center(
               child: GestureDetector(
-                onTap: () => {},
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const SignUpScreen(),
+                  ),
+                ),
                 child: Text(
                   "Skip",
                   style: NannyTheme.lightTextTheme.headline6
