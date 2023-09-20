@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../utils/theme/theme.dart';
+import 'facial_verification.dart';
 
 class IdentityVerificationTermsScreen extends StatefulWidget {
   const IdentityVerificationTermsScreen({super.key});
@@ -153,7 +154,12 @@ class _IdentityVerificationTermsScreenState
                   10,
                 ),
                 child: TextButton(
-                  onPressed: () => {},
+                  onPressed: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const FacialVerificationScreen(),
+                    ),
+                  ),
                   child: Text(
                     "Continue",
                     style: NannyTheme.darkTextTheme.displaySmall,
