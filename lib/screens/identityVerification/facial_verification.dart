@@ -16,9 +16,18 @@ class FacialVerificationScreen extends StatelessWidget {
       ),
       appBar: AppBar(
         elevation: 0,
-        automaticallyImplyLeading: true,
+        automaticallyImplyLeading: false,
         backgroundColor: Colors.transparent,
         centerTitle: true,
+        leading: IconButton(
+            icon: Icon(
+              Icons.chevron_left,
+              size: size.height * 0.05,
+              color: NannyTheme.mainColor,
+            ),
+            onPressed: () {
+              Navigator.of(context).pop();
+            }),
         title: Text(
           "Facial Verification",
           style: NannyTheme.lightTextTheme.titleLarge?.copyWith(
@@ -136,10 +145,9 @@ class FacialVerificationScreen extends StatelessWidget {
                   child: const Text(
                     "Begin Verification",
                     style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.w500,
-                      fontSize: 16
-                    ),
+                        color: Colors.black,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 16),
                   ),
                 ),
               ),
