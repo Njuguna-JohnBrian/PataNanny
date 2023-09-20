@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:patananny/utils/theme/theme.dart';
 
+import 'facial_verification_face_id.dart';
+
 class FacialVerificationScreen extends StatelessWidget {
   const FacialVerificationScreen({super.key});
 
@@ -139,7 +141,12 @@ class FacialVerificationScreen extends StatelessWidget {
                   10,
                 ),
                 child: TextButton(
-                  onPressed: () => {},
+                  onPressed: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const FaceIdScreen(),
+                    ),
+                  ),
                   style: TextButton.styleFrom(
                       backgroundColor: NannyTheme.mainColor),
                   child: const Text(
