@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-
 import '../../utils/theme/theme.dart';
+import '../screens.barrel.dart' show IdentityVerificationScreen;
 import 'components/confirm_password_input.dart';
 import 'components/email_input.dart';
 import 'components/firstname_input.dart';
@@ -157,7 +157,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
                 SignUpButton(
                   voidCallbackFunction: () {
-                    if (_signUpFormKey.currentState!.validate()) {}
+                    if (!_signUpFormKey.currentState!.validate()) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const IdentityVerificationScreen(),
+                        ),
+                      );
+                    }
                   },
                 ),
                 SizedBox(
