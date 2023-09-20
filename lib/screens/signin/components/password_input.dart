@@ -1,13 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:patananny/utils/theme/theme.dart';
 
-class SignUpFirstNameInputField extends StatelessWidget {
+class SignInPasswordInputField extends StatefulWidget {
   final TextEditingController textEditingController;
 
-  const SignUpFirstNameInputField({
+  const SignInPasswordInputField({
     super.key,
     required this.textEditingController,
   });
+
+  @override
+  State<SignInPasswordInputField> createState() =>
+      _SignUpPasswordInputFieldState();
+}
+
+class _SignUpPasswordInputFieldState extends State<SignInPasswordInputField> {
+  bool showPassword = false;
+
+  @override
+  void initState() {
+    showPassword = false;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -21,23 +35,29 @@ class SignUpFirstNameInputField extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text("First Name", style: NannyTheme.lightTextTheme.headline6?.copyWith(
-            color: NannyTheme.mainColor.withOpacity(1),
-            fontWeight: FontWeight.w600,
-          ),),
+          Text(
+            "Password",
+            style: NannyTheme.lightTextTheme.headline6?.copyWith(
+              color: NannyTheme.mainColor.withOpacity(1),
+              fontWeight: FontWeight.w900,
+            ),
+          ),
           SizedBox(
-            height: size.height * 0.002,
+            height: size.height * 0.01,
           ),
           TextFormField(
-            controller: textEditingController,
+            controller: widget.textEditingController,
+            obscureText: !showPassword,
             autovalidateMode: AutovalidateMode.onUserInteraction,
             validator: ((value) {
               if (value!.isEmpty) {
-                return "First name cannot be empty";
-              } else if (!RegExp("[a-zA-Z]").hasMatch(value)) {
-                return "Please use only letters for your first name";
-              } else if (value.length < 3) {
-                return "Please ensure your first name is 3 characters and above";
+                return "Password cannot be empty";
+              } else if (value.length < 6) {
+                return "Password must have 6 or more characters";
+              } else if (!RegExp(
+                      r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{6,}$')
+                  .hasMatch(value)) {
+                return "Password must contain a number, uppercase & lowercase letters and a special character";
               } else {
                 return null;
               }
@@ -48,8 +68,17 @@ class SignUpFirstNameInputField extends StatelessWidget {
               fillColor: Colors.grey.shade200,
               filled: true,
               prefixIcon: Icon(
-                Icons.keyboard,
+                Icons.password,
                 color: Colors.grey.shade400,
+              ),
+              suffixIcon: IconButton(
+                onPressed: () => setState(() {
+                  showPassword = !showPassword;
+                }),
+                icon: Icon(
+                  showPassword ? Icons.visibility : Icons.visibility_off,
+                  color: Colors.grey.shade400,
+                ),
               ),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(
@@ -75,7 +104,11 @@ class SignUpFirstNameInputField extends StatelessWidget {
                   color: Colors.grey.shade200,
                 ),
               ),
-              hintText: "Frida",
+              hintText: ". . . . . .",
+              hintStyle: const TextStyle(
+                fontWeight: FontWeight.w900,
+                fontSize: 20,
+              ),
             ),
           ),
         ],

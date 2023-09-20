@@ -17,37 +17,76 @@ class FaceIdScreen extends StatelessWidget {
         automaticallyImplyLeading: false,
         elevation: 0,
         backgroundColor: Colors.transparent,
-        actions: [
-          Padding(
-            padding: EdgeInsets.only(
-              right: size.width * 0.045,
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  Icons.pin_drop,
+                  size: size.width * 0.15,
+                  color: NannyTheme.faintMainColor.withOpacity(
+                    0.9,
+                  ),
+                ),
+                Row(
+                  children: [
+                    Text(
+                      "Pata",
+                      style: TextStyle(
+                        fontSize: 30,
+                        color: NannyTheme.faintMainColor.withOpacity(
+                          0.9,
+                        ),
+                      ),
+                    ),
+                    const Text(
+                      "Nanny",
+                      style: TextStyle(
+                        fontSize: 30,
+                        fontWeight: FontWeight.w500,
+                        color: NannyTheme.faintMainColor,
+                      ),
+                    ),
+                  ],
+                )
+              ],
             ),
-            child: Center(
-              child: GestureDetector(
-                onTap: () => {},
-                child: Text(
-                  "Skip",
-                  style: NannyTheme.lightTextTheme.headline6
-                      ?.copyWith(decoration: TextDecoration.underline),
+            SizedBox(
+              height: size.height * 0.07,
+            ),
+            Text(
+              "Use Face ID",
+              style: NannyTheme.lightTextTheme.headline2,
+            ),
+            SizedBox(
+              height: size.height * 0.07,
+            ),
+            const FaceIdAnimation(),
+            SizedBox(
+              height: size.height * 0.07,
+            ),
+            SizedBox(
+              width: size.width * 0.5,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(
+                  10,
+                ),
+                child: TextButton(
+                  onPressed: () => {},
+                  child: Text(
+                    "CONTINUE",
+                    style: NannyTheme.darkTextTheme.displaySmall
+                        ?.copyWith(color: NannyTheme.mainColor.withOpacity(1)),
+                  ),
                 ),
               ),
-            ),
-          ),
-        ],
-      ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const FaceIdAnimation(),
-          SizedBox(
-            width: size.width * 0.78,
-            child: Text(
-              "Trust us with your child's safety. Our nannies are carefully vetted and trained to provide the best care possible",
-              style: NannyTheme.lightTextTheme.headline6
-                  ?.copyWith(wordSpacing: 2.0),
-            ),
-          )
-        ],
+            )
+          ],
+        ),
       ),
     );
   }

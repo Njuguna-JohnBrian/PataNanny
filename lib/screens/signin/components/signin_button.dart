@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:patananny/utils/theme/theme.dart';
 
-class SignUpButton extends StatelessWidget {
+class SignInButton extends StatelessWidget {
   final VoidCallback voidCallbackFunction;
 
-  const SignUpButton({
+  const SignInButton({
     super.key,
     required this.voidCallbackFunction,
   });
@@ -24,7 +24,7 @@ class SignUpButton extends StatelessWidget {
             backgroundColor: NannyTheme.mainColor,
           ),
           child: Text(
-            "Create Account",
+            "Sign In",
             style: NannyTheme.darkTextTheme.headline3?.copyWith(
                 color: Colors.black
             ),

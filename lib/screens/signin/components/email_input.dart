@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:patananny/utils/theme/theme.dart';
 
-class SignUpFirstNameInputField extends StatelessWidget {
+class SignInEmailInputField extends StatelessWidget {
   final TextEditingController textEditingController;
 
-  const SignUpFirstNameInputField({
+  const SignInEmailInputField({
     super.key,
     required this.textEditingController,
   });
@@ -21,34 +21,34 @@ class SignUpFirstNameInputField extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text("First Name", style: NannyTheme.lightTextTheme.headline6?.copyWith(
+          Text("Email", style: NannyTheme.lightTextTheme.headline6?.copyWith(
             color: NannyTheme.mainColor.withOpacity(1),
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w900,
           ),),
           SizedBox(
-            height: size.height * 0.002,
+            height: size.height * 0.01,
           ),
           TextFormField(
             controller: textEditingController,
             autovalidateMode: AutovalidateMode.onUserInteraction,
             validator: ((value) {
               if (value!.isEmpty) {
-                return "First name cannot be empty";
-              } else if (!RegExp("[a-zA-Z]").hasMatch(value)) {
-                return "Please use only letters for your first name";
-              } else if (value.length < 3) {
-                return "Please ensure your first name is 3 characters and above";
+                return "Email cannot be empty";
+              } else if (!RegExp(
+                      r"^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$")
+                  .hasMatch(value)) {
+                return "Please provide a valid email address";
               } else {
                 return null;
               }
             }),
             cursorColor: Colors.grey,
-            keyboardType: TextInputType.name,
+            keyboardType: TextInputType.emailAddress,
             decoration: InputDecoration(
               fillColor: Colors.grey.shade200,
               filled: true,
               prefixIcon: Icon(
-                Icons.keyboard,
+                Icons.email,
                 color: Colors.grey.shade400,
               ),
               enabledBorder: OutlineInputBorder(
@@ -75,7 +75,7 @@ class SignUpFirstNameInputField extends StatelessWidget {
                   color: Colors.grey.shade200,
                 ),
               ),
-              hintText: "Frida",
+              hintText: "fridaofula@gmail.com",
             ),
           ),
         ],

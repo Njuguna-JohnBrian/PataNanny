@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../utils/theme/theme.dart';
 import '../screens.barrel.dart' show IdentityVerificationScreen;
+import '../signin/signin.dart';
 import 'components/confirm_password_input.dart';
 import 'components/email_input.dart';
 import 'components/firstname_input.dart';
@@ -41,6 +42,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
     return Scaffold(
       extendBody: true,
       extendBodyBehindAppBar: true,
+      backgroundColor: NannyTheme.faintMainColor.withOpacity(
+        0.45,
+      ),
       appBar: AppBar(
         automaticallyImplyLeading: false,
         elevation: 0,
@@ -60,8 +64,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
                 child: Text(
                   "Skip",
-                  style: NannyTheme.lightTextTheme.titleLarge
-                      ?.copyWith(decoration: TextDecoration.underline),
+                  style: TextStyle(
+                    color: NannyTheme.mainColor,
+                    fontSize: 20,
+                  ),
                 ),
               ),
             ),
@@ -83,40 +89,44 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   children: [
                     Text(
                       "Find a baby care",
-                      style: NannyTheme.lightTextTheme.titleLarge,
+                      style: NannyTheme.lightTextTheme.titleLarge?.copyWith(
+                        color: NannyTheme.mainColor
+                      ),
                     ),
                     Text(
                       "Fill your details to become a member",
-                      style: NannyTheme.lightTextTheme.displaySmall,
+                      style: NannyTheme.lightTextTheme.displaySmall?.copyWith(
+                          color: NannyTheme.mainColor
+                      ),
                     ),
                   ],
                 ),
                 SizedBox(
-                  height: size.height * 0.03,
+                  height: size.height * 0.02,
                 ),
                 SignUpEmailInputField(
                   textEditingController: _emailController,
                 ),
                 SizedBox(
-                  height: size.height * 0.02,
+                  height: size.height * 0.01,
                 ),
                 SignUpFirstNameInputField(
                   textEditingController: _firstNameController,
                 ),
                 SizedBox(
-                  height: size.height * 0.02,
+                  height: size.height * 0.01,
                 ),
                 SignUpLastNameInputField(
                   textEditingController: _lastNameController,
                 ),
                 SizedBox(
-                  height: size.height * 0.02,
+                  height: size.height * 0.01,
                 ),
                 SignUpPasswordInputField(
                   textEditingController: _passwordController,
                 ),
                 SizedBox(
-                  height: size.height * 0.02,
+                  height: size.height * 0.01,
                 ),
                 SignUpConfirmPasswordInputField(
                   textEditingController: _confirmPasswordController,
@@ -148,7 +158,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
                     Text(
                       "I agree to all terms & conditions",
-                      style: NannyTheme.lightTextTheme.displaySmall,
+                      style: NannyTheme.lightTextTheme.displaySmall?.copyWith(
+                          color: Colors.white
+                      ),
                     ),
                   ],
                 ),
@@ -161,27 +173,36 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const IdentityVerificationScreen(),
+                          builder: (context) =>
+                              const IdentityVerificationScreen(),
                         ),
                       );
                     }
                   },
                 ),
                 SizedBox(
-                  height: size.height * 0.10,
+                  height: size.height * 0.04,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
                       "Already have an account? ",
-                      style: NannyTheme.lightTextTheme.titleLarge,
-                    ),
-                    Text(
-                      "Sign In",
                       style: NannyTheme.lightTextTheme.titleLarge?.copyWith(
-                        color: NannyTheme.faintMainColor,
+                          color: Colors.white
                       ),
+                    ),
+                    GestureDetector(
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const SignInScreen(),
+                        ),
+                      ),
+                      child: Text("Sign In",
+                          style: NannyTheme.lightTextTheme.titleLarge?.copyWith(
+                          color: NannyTheme.mainColor
+                      )),
                     )
                   ],
                 ),
