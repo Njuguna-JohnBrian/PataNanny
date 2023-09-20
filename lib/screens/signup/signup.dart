@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../nav.dart';
 import '../../utils/theme/theme.dart';
 import '../screens.barrel.dart' show IdentityVerificationScreen;
 import '../signin/signin.dart';
@@ -56,13 +57,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
             ),
             child: Center(
               child: GestureDetector(
-                onTap: () => Navigator.push(
+                onTap: () => Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const SignUpScreen(),
-                  ),
+                    builder: (context) => const NavScreen(),
+                  )
                 ),
-                child: Text(
+                child: const Text(
                   "Skip",
                   style: TextStyle(
                     color: NannyTheme.mainColor,

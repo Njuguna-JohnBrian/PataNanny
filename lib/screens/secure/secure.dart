@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:patananny/animations/animation_screens/secure.dart';
-import 'package:patananny/screens/screens.barrel.dart';
+import 'package:patananny/screens/signin/signin.dart';
 import 'package:patananny/utils/theme/theme.dart';
 
 class SecureScreen extends StatelessWidget {
@@ -9,6 +9,16 @@ class SecureScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    Future.delayed(
+      const Duration(seconds: 5),
+      () {
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => const SignInScreen(),
+          ),
+        );
+      },
+    );
     return Scaffold(
       extendBody: true,
       extendBodyBehindAppBar: true,
@@ -26,7 +36,7 @@ class SecureScreen extends StatelessWidget {
                 onTap: () => Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const SignUpScreen(),
+                    builder: (context) => const SignInScreen(),
                   ),
                 ),
                 child: Text(

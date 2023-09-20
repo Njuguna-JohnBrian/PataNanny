@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:patananny/splash_screen.dart';
 import 'screens/screens.barrel.dart' show SecureScreen;
 import 'package:patananny/utils/theme/theme.dart';
 
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
       title: 'Pata Nanny',
       debugShowCheckedModeBanner: false,
       theme: NannyTheme.light(),
-      home: SecureScreen()
+      home: SplashScreen()
     );
   }
 }

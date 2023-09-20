@@ -4,6 +4,7 @@ import 'package:patananny/screens/signin/components/password_input.dart';
 import 'package:patananny/screens/signin/components/signin_button.dart';
 
 import '../../utils/theme/theme.dart';
+import '../identityVerification/identityVerification.dart';
 import '../signup/signup.dart';
 
 class SignInScreen extends StatefulWidget {
@@ -83,7 +84,14 @@ class _SignUpScreenState extends State<SignInScreen> {
                 ),
                 SignInButton(
                   voidCallbackFunction: () {
-                    if (!_signInFormKey.currentState!.validate()) {}
+                    if (!_signInFormKey.currentState!.validate()) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const IdentityVerificationScreen(),
+                        ),
+                      );
+                    }
                   },
                 ),
                 SizedBox(
