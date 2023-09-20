@@ -11,12 +11,12 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     Future.delayed(
       const Duration(seconds: 5),
-          () {
-        Navigator.of(context).push(
-          MaterialPageRoute(
-            builder: (context) => const SecureScreen(),
-          ),
-        );
+      () {
+        Navigator.of(context).pushAndRemoveUntil(
+            MaterialPageRoute(
+              builder: (context) => SecureScreen(),
+            ),
+            (Route<dynamic> route) => false);
       },
     );
     Size size = MediaQuery.of(context).size;

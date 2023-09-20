@@ -57,12 +57,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
             ),
             child: Center(
               child: GestureDetector(
-                onTap: () => Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const NavScreen(),
-                  )
-                ),
+                onTap: () => Navigator.of(context).pushAndRemoveUntil(
+                    MaterialPageRoute(
+                      builder: (context) => NavScreen(),
+                    ),
+                    (Route<dynamic> route) => false),
                 child: const Text(
                   "Skip",
                   style: TextStyle(
@@ -90,15 +89,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   children: [
                     Text(
                       "Find a baby care",
-                      style: NannyTheme.lightTextTheme.titleLarge?.copyWith(
-                        color: NannyTheme.mainColor
-                      ),
+                      style: NannyTheme.lightTextTheme.titleLarge
+                          ?.copyWith(color: NannyTheme.mainColor),
                     ),
                     Text(
                       "Fill your details to become a member",
-                      style: NannyTheme.lightTextTheme.displaySmall?.copyWith(
-                          color: NannyTheme.mainColor
-                      ),
+                      style: NannyTheme.lightTextTheme.displaySmall
+                          ?.copyWith(color: NannyTheme.mainColor),
                     ),
                   ],
                 ),
@@ -159,9 +156,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
                     Text(
                       "I agree to all terms & conditions",
-                      style: NannyTheme.lightTextTheme.displaySmall?.copyWith(
-                          color: Colors.white
-                      ),
+                      style: NannyTheme.lightTextTheme.displaySmall
+                          ?.copyWith(color: Colors.white),
                     ),
                   ],
                 ),
@@ -189,9 +185,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   children: [
                     Text(
                       "Already have an account? ",
-                      style: NannyTheme.lightTextTheme.titleLarge?.copyWith(
-                          color: Colors.white
-                      ),
+                      style: NannyTheme.lightTextTheme.titleLarge
+                          ?.copyWith(color: Colors.white),
                     ),
                     GestureDetector(
                       onTap: () => Navigator.push(
@@ -201,9 +196,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         ),
                       ),
                       child: Text("Sign In",
-                          style: NannyTheme.lightTextTheme.titleLarge?.copyWith(
-                          color: NannyTheme.mainColor
-                      )),
+                          style: NannyTheme.lightTextTheme.titleLarge
+                              ?.copyWith(color: NannyTheme.mainColor)),
                     )
                   ],
                 ),

@@ -3,18 +3,18 @@ import 'package:patananny/screens/signin/components/email_input.dart';
 import 'package:patananny/screens/signin/components/password_input.dart';
 import 'package:patananny/screens/signin/components/signin_button.dart';
 
+import '../../nav.dart';
 import '../../utils/theme/theme.dart';
-import '../identityVerification/identityVerification.dart';
 import '../signup/signup.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
 
   @override
-  State<SignInScreen> createState() => _SignUpScreenState();
+  State<SignInScreen> createState() => _SignInScreen();
 }
 
-class _SignUpScreenState extends State<SignInScreen> {
+class _SignInScreen extends State<SignInScreen> {
   final _signInFormKey = GlobalKey<FormState>();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -85,12 +85,11 @@ class _SignUpScreenState extends State<SignInScreen> {
                 SignInButton(
                   voidCallbackFunction: () {
                     if (!_signInFormKey.currentState!.validate()) {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const IdentityVerificationScreen(),
-                        ),
-                      );
+                      Navigator.of(context).pushAndRemoveUntil(
+                          MaterialPageRoute(
+                            builder: (context) => NavScreen(),
+                          ),
+                          (Route<dynamic> route) => false);
                     }
                   },
                 ),

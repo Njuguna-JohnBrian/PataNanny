@@ -12,11 +12,11 @@ class SecureScreen extends StatelessWidget {
     Future.delayed(
       const Duration(seconds: 5),
       () {
-        Navigator.of(context).push(
-          MaterialPageRoute(
-            builder: (context) => const SignInScreen(),
-          ),
-        );
+        Navigator.of(context).pushAndRemoveUntil(
+            MaterialPageRoute(
+              builder: (context) => SignInScreen(),
+            ),
+            (Route<dynamic> route) => false);
       },
     );
     return Scaffold(
@@ -26,28 +26,6 @@ class SecureScreen extends StatelessWidget {
         automaticallyImplyLeading: false,
         elevation: 0,
         backgroundColor: Colors.transparent,
-        actions: [
-          Padding(
-            padding: EdgeInsets.only(
-              right: size.width * 0.045,
-            ),
-            child: Center(
-              child: GestureDetector(
-                onTap: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const SignInScreen(),
-                  ),
-                ),
-                child: Text(
-                  "Skip",
-                  style: NannyTheme.lightTextTheme.headline6
-                      ?.copyWith(decoration: TextDecoration.underline),
-                ),
-              ),
-            ),
-          ),
-        ],
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
