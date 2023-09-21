@@ -5,6 +5,7 @@ import 'package:patananny/screens/signin/components/signin_button.dart';
 
 import '../../nav.dart';
 import '../../utils/theme/theme.dart';
+import '../requestNanny/requestNanny.dart';
 import '../signup/signup.dart';
 
 class SignInScreen extends StatefulWidget {
@@ -87,7 +88,7 @@ class _SignInScreen extends State<SignInScreen> {
                     if (!_signInFormKey.currentState!.validate()) {
                       Navigator.of(context).pushAndRemoveUntil(
                           MaterialPageRoute(
-                            builder: (context) => NavScreen(),
+                            builder: (context) => RequestNannyScreen(),
                           ),
                           (Route<dynamic> route) => false);
                     }
