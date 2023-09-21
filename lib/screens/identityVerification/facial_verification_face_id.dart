@@ -4,6 +4,7 @@ import '../../animations/animation_screens/face_id.dart';
 import '../../animations/animation_screens/secure.dart';
 import '../../nav.dart';
 import '../../utils/theme/theme.dart';
+import '../requestNanny/requestNanny.dart';
 
 class FaceIdScreen extends StatelessWidget {
   const FaceIdScreen({super.key});
@@ -80,7 +81,7 @@ class FaceIdScreen extends StatelessWidget {
                   onPressed: () => {
                     Navigator.of(context).pushAndRemoveUntil(
                         MaterialPageRoute(
-                          builder: (context) => NavScreen(),
+                          builder: (context) => RequestNannyScreen(),
                         ),
                         (Route<dynamic> route) => false)
                   },
