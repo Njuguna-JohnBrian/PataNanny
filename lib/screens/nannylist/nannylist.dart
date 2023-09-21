@@ -20,19 +20,84 @@ class NannyModel {
   });
 }
 
-class NannyListScreen extends StatelessWidget {
-  final List<NannyModel> nannyItems = List.generate(100, (index) {
-    // Use Random class to generate random availability
-    final Random random = Random();
-    String availability = random.nextBool() ? "Booked" : "Available";
+class RandomNameGenerator {
+  final List<String> _names = [
+    'Alice',
+    'Bob',
+    'Charlie',
+    'David',
+    'Eve',
+    'Frank',
+    'Grace',
+    'Hannah',
+    'Ivy',
+    'Jack',
+    'Katie',
+    'Liam',
+    'Mia',
+    'Noah',
+    'Olivia',
+    'Parker',
+    'Quinn',
+    'Ryan',
+    'Sophia',
+    'Thomas',
+    'Uma',
+    'Violet',
+    'William',
+    'Xander',
+    'Yasmine',
+    'Zoe',
+    'Ava',
+    'Benjamin',
+    'Chloe',
+    'Daniel',
+    'Emily',
+    'Ethan',
+    'Grace',
+    'Harper',
+    'Isabella',
+    'Jacob',
+    'James',
+    'Lily',
+    'Madison',
+    'Mason',
+    'Michael',
+    'Oliver',
+    'Olivia',
+    'Sophia',
+    'William'
+  ];
 
-    return NannyModel(
-      name: "Tom",
-      availability: availability,
-      imageLink: "https://i.pravatar.cc/150?u=${index + 2}",
-      nannyIndex: index + 1,
-    );
-  });
+  String generateRandomName() {
+    final random = Random();
+    final index = random.nextInt(_names.length);
+    return _names[index];
+  }
+}
+
+class NannyListScreen extends StatelessWidget {
+  final RandomNameGenerator nameGenerator = RandomNameGenerator();
+
+  late final List<NannyModel> nannyItems;
+
+  NannyListScreen({super.key}) {
+    nannyItems = List.generate(100, (index) {
+      // Use Random class to generate random availability
+      final Random random = Random();
+      String availability = random.nextBool() ? "Booked" : "Available";
+
+      final firstName = nameGenerator.generateRandomName();
+      final lastName = nameGenerator.generateRandomName();
+
+      return NannyModel(
+        name: '$firstName $lastName',
+        availability: availability,
+        imageLink: "https://i.pravatar.cc/150?u=${index + 2}",
+        nannyIndex: index + 1,
+      );
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -42,13 +107,13 @@ class NannyListScreen extends StatelessWidget {
       backgroundColor: NannyTheme.faintMainColor.withOpacity(0.45),
       appBar: AppBar(
           backgroundColor: Colors.transparent,
-          title: Text("Find A Nanny Near You"),
+          title: const Text("Find A Nanny Near You"),
           actions: <Widget>[
             IconButton(
               onPressed: () => {
                 Navigator.of(context).pushAndRemoveUntil(
                     MaterialPageRoute(
-                      builder: (context) => SignInScreen(),
+                      builder: (context) => const SignInScreen(),
                     ),
                     (Route<dynamic> route) => false)
               },
