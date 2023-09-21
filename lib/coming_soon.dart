@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:patananny/utils/theme/theme.dart';
 
+import 'animations/animation_screens/soon.dart';
+
 class ComingSoonScreen extends StatelessWidget {
   const ComingSoonScreen({super.key});
 
@@ -10,7 +12,9 @@ class ComingSoonScreen extends StatelessWidget {
       backgroundColor: NannyTheme.faintMainColor.withOpacity(0.45),
       extendBodyBehindAppBar: true,
       extendBody: true,
-      body: ComingSoonScreen(),
+      body: const Center(
+        child: SoonAnimation(),
+      ),
     );
   }
 }
