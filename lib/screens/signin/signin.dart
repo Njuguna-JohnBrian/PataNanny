@@ -85,7 +85,7 @@ class _SignInScreen extends State<SignInScreen> {
                 ),
                 SignInButton(
                   voidCallbackFunction: () {
-                    if (!_signInFormKey.currentState!.validate()) {
+                    if (_signInFormKey.currentState!.validate()) {
                       Navigator.of(context).pushAndRemoveUntil(
                           MaterialPageRoute(
                             builder: (context) => RequestNannyScreen(),

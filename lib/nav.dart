@@ -26,6 +26,9 @@ class _HomeScreenState extends State<NavScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: NannyTheme.faintMainColor.withOpacity(
+        0.45,
+      ),
       bottomNavigationBar: BottomNavigationBar(
         onTap: _onTapped,
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,

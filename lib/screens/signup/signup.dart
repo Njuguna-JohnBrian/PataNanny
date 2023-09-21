@@ -166,7 +166,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
                 SignUpButton(
                   voidCallbackFunction: () {
-                    if (!_signUpFormKey.currentState!.validate()) {
+                    if (_signUpFormKey.currentState!.validate()) {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
