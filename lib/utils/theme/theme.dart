@@ -65,6 +65,7 @@ class NannyTheme {
     return ThemeData(
       brightness: Brightness.light,
       fontFamily: "OpenSans",
+      useMaterial3: true,
       scaffoldBackgroundColor: mainColor,
       checkboxTheme: CheckboxThemeData(
         fillColor: MaterialStateColor.resolveWith(
