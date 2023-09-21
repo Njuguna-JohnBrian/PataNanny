@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:patananny/screens/signin/signin.dart';
@@ -211,11 +212,9 @@ class _NannyCardState extends State<NannyCard> {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(30.0),
               color: Colors.green,
-              image: DecorationImage(
-                image: NetworkImage(
-                  widget.nannyModel.imageLink,
-                ),
-              ),
+            ),
+            child: CachedNetworkImage(
+              imageUrl: widget.nannyModel.imageLink,
             ),
           ),
           const SizedBox(
