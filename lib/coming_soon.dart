@@ -10,9 +10,7 @@ class ComingSoonScreen extends StatelessWidget {
       backgroundColor: NannyTheme.faintMainColor.withOpacity(0.45),
       extendBodyBehindAppBar: true,
       extendBody: true,
-      body: const Center(
-        child: ComingSoonScreen(),
-      ),
+      body: ComingSoonScreen(),
     );
   }
 }
