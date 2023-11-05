@@ -1,6 +1,6 @@
 # PataNanny - Connecting Parents and Nannies
 
-![PataNanny Logo](https://github.com/Njuguna-JohnBrian/PataNanny/path/to/your/logo.png)
+<img src="assets/images/logo.png" width="200">
 
 PataNanny is a mobile application built with Flutter that facilitates the connection between parents and nannies. Whether you are a parent looking for a trusted nanny to take care of your child or a nanny searching for job opportunities, PataNanny provides a platform for seamless communication and collaboration.
 
